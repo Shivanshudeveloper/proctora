@@ -21,7 +21,31 @@ const dashboard = {
             url: '/dashboard/default',
             icon: icons.IconDashboard,
             breadcrumbs: false
-        }
+        },
+        {
+            id: 'default1',
+            title: 'Questions Banks',
+            type: 'item',
+            url: '/dashboard/default',
+            icon: icons.IconDashboard,
+            breadcrumbs: false
+        },
+        {
+            id: 'default2',
+            title: 'Create Test',
+            type: 'item',
+            url: '/dashboard/default',
+            icon: icons.IconDashboard,
+            breadcrumbs: false
+        },
+        {
+            id: 'default4',
+            title: 'Support',
+            type: 'item',
+            url: '/dashboard/default',
+            icon: icons.IconDashboard,
+            breadcrumbs: false
+        },
     ]
 };
 

@@ -14,26 +14,25 @@ const icons = {
 
 const pages = {
     id: 'pages',
-    title: 'Pages',
-    caption: 'Pages Caption',
+    title: 'Evaluate',
     type: 'group',
     children: [
         {
             id: 'authentication',
-            title: 'Authentication',
+            title: 'Evaluate',
             type: 'collapse',
             icon: icons.IconKey,
             children: [
                 {
-                    id: 'login3',
-                    title: 'Login',
+                    id: 'default31',
+                    title: 'Evaluate Tests',
                     type: 'item',
                     url: '/pages/login/login3',
                     target: true
                 },
                 {
-                    id: 'register3',
-                    title: 'Register',
+                    id: 'default32',
+                    title: 'Publish/ Approval Results',
                     type: 'item',
                     url: '/pages/register/register3',
                     target: true

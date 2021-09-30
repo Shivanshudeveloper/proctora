@@ -36,6 +36,10 @@ import { strengthColor, strengthIndicator } from 'utils/password-strength';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormLabel from '@mui/material/FormLabel';
+
 // style constant
 const useStyles = makeStyles((theme) => ({
     redButton: {
@@ -72,6 +76,12 @@ const useStyles = makeStyles((theme) => ({
     },
     loginInput: {
         ...theme.typography.customInput
+    },
+    radioInput: {
+        borderColor: `${theme.palette.grey[100]} !important`,
+        color: `${theme.palette.grey[900]}!important`,
+        marginTop: '18px',
+        marginBottom: '18px'
     }
 }));
 
@@ -113,43 +123,8 @@ const FirebaseRegister = ({ ...others }) => {
     return (
         <>
             <Grid container direction="column" justifyContent="center" spacing={2}>
-                <Grid item xs={12}>
-                    <AnimateButton>
-                        <Button
-                            disableElevation
-                            fullWidth
-                            className={classes.redButton}
-                            onClick={googleHandler}
-                            size="large"
-                            variant="contained"
-                        >
-                            <img src={Google} alt="google" width="20px" sx={{ mr: { xs: 1, sm: 2 } }} className={classes.loginIcon} /> Sign
-                            up with Google
-                        </Button>
-                    </AnimateButton>
-                </Grid>
-                <Grid item xs={12}>
-                    <Box
-                        sx={{
-                            alignItems: 'center',
-                            display: 'flex'
-                        }}
-                    >
-                        <Divider className={classes.signDivider} orientation="horizontal" />
-                        <AnimateButton>
-                            <Button
-                                variant="outlined"
-                                className={classes.signText}
-                                sx={{ borderRadius: `${customization.borderRadius}px` }}
-                                disableRipple
-                                disabled
-                            >
-                                OR
-                            </Button>
-                        </AnimateButton>
-                        <Divider className={classes.signDivider} orientation="horizontal" />
-                    </Box>
-                </Grid>
+                
+                
                 <Grid item xs={12} container alignItems="center" justifyContent="center">
                     <Box
                         sx={{
@@ -234,6 +209,15 @@ const FirebaseRegister = ({ ...others }) => {
                                     {errors.email}{' '}
                                 </FormHelperText>
                             )}
+                        </FormControl>
+
+                        <FormControl className={classes.radioInput} component="fieldset">
+                            <FormLabel component="legend">Select your role</FormLabel>
+                            <RadioGroup row aria-label="role" name="row-radio-buttons-group">
+                                <FormControlLabel value="Student" control={<Radio />} label="Student" />
+                                <FormControlLabel value="Institute" control={<Radio />} label="Institute" />
+                                <FormControlLabel value="Teacher" control={<Radio />} label="Teacher" />
+                            </RadioGroup>
                         </FormControl>
 
                         <FormControl fullWidth error={Boolean(touched.password && errors.password)} className={classes.loginInput}>
@@ -357,6 +341,43 @@ const FirebaseRegister = ({ ...others }) => {
                     </form>
                 )}
             </Formik>
+            <Grid item xs={12}>
+                <Box
+                    sx={{
+                        alignItems: 'center',
+                        display: 'flex'
+                    }}
+                >
+                    <Divider className={classes.signDivider} orientation="horizontal" />
+                    <AnimateButton>
+                        <Button
+                            variant="outlined"
+                            className={classes.signText}
+                            sx={{ borderRadius: `${customization.borderRadius}px` }}
+                            disableRipple
+                            disabled
+                        >
+                            OR
+                        </Button>
+                    </AnimateButton>
+                    <Divider className={classes.signDivider} orientation="horizontal" />
+                </Box>
+            </Grid>
+            <Grid item xs={12}>
+                <AnimateButton>
+                    <Button
+                        disableElevation
+                        fullWidth
+                        className={classes.redButton}
+                        onClick={googleHandler}
+                        size="large"
+                        variant="contained"
+                    >
+                        <img src={Google} alt="google" width="20px" sx={{ mr: { xs: 1, sm: 2 } }} className={classes.loginIcon} /> Sign
+                        up with Google
+                    </Button>
+                </AnimateButton>
+            </Grid>
         </>
     );
 };

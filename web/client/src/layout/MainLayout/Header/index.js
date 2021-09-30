@@ -3,7 +3,7 @@ import React from 'react';
 
 // material-ui
 import { makeStyles } from '@material-ui/styles';
-import { Avatar, Box, ButtonBase } from '@material-ui/core';
+import { Avatar, Box, ButtonBase, Button } from '@material-ui/core';
 
 // project imports
 import LogoSection from '../LogoSection';
@@ -49,7 +49,7 @@ const Header = ({ handleLeftDrawerToggle }) => {
             {/* logo & toggler button */}
             <div className={classes.boxContainer}>
                 <Box component="span" sx={{ display: { xs: 'none', md: 'block' }, flexGrow: 1 }}>
-                    <LogoSection />
+                    Proctor
                 </Box>
                 <ButtonBase sx={{ borderRadius: '12px', overflow: 'hidden' }}>
                     <Avatar variant="rounded" className={classes.headerAvatar} onClick={handleLeftDrawerToggle} color="inherit">
@@ -64,6 +64,13 @@ const Header = ({ handleLeftDrawerToggle }) => {
             <div className={classes.grow} />
 
             {/* notification & profile */}
+            <Button variant="outlined">
+                Upgrade Plan
+            </Button>
+            <Button style={{ marginLeft: '20px' }} variant="contained">
+                Invite People
+            </Button>
+
             <NotificationSection />
             <ProfileSection />
         </>
